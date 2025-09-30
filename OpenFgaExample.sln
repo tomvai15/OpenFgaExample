@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenFgaExample.Api", "OpenFgaExample.Api\OpenFgaExample.Api.csproj", "{58F332C0-89B2-4626-8B87-9CFB7A6786AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{58F332C0-89B2-4626-8B87-9CFB7A6786AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58F332C0-89B2-4626-8B87-9CFB7A6786AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58F332C0-89B2-4626-8B87-9CFB7A6786AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58F332C0-89B2-4626-8B87-9CFB7A6786AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
