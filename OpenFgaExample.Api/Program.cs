@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Authorization;
 using OpenFga.Sdk.Client;
 using OpenFgaExample.Api.Authorization;
+using OpenFgaExample.Core;
+using OpenFgaExample.Core.Interfaces;
 
 namespace OpenFgaExample.Api;
 
@@ -19,17 +21,27 @@ public class Program
             };
             return new OpenFgaClient(config);
         });
-        
+
+        builder.Services.AddTransient<IAuthorizationChecker, OpenFgaAuthorizationChecker>();
         builder.Services.AddSingleton<IAuthorizationHandler, FgaHandler>();
         builder.Services.AddSingleton<IAuthorizationPolicyProvider, FgaPolicyProvider>();
+        builder.Services.AddSingleton<ICheckRequestProvider, CheckRequestProvider>();
         
         // Add services to the container.
-
+        builder.Services.AddHttpContextAccessor();
         builder.Services.AddControllers();
         // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
         builder.Services.AddOpenApi();
+        builder.Services.AddEndpointsApiExplorer();
+        builder.Services.AddSwaggerGen(c =>
+        {
+            c.OperationFilter<AddHeaderOperationFilter>();
+        });
 
         var app = builder.Build();
+        
+        app.UseSwagger();
+        app.UseSwaggerUI();
 
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
@@ -40,7 +52,6 @@ public class Program
         app.UseHttpsRedirection();
 
         app.UseAuthorization();
-
 
         app.MapControllers();
 

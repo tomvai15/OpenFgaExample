@@ -1,0 +1,32 @@
+{
+    "tuples": [
+        {
+            "key": {
+                "user": "user:tom",
+                "relation": "Member",
+                "object": "Organization:defaultOrg",
+                "condition": null
+            },
+            "timestamp": "2025-10-02T19:37:43.990126Z"
+        },
+        {
+            "key": {
+                "user": "Organization:defaultOrg",
+                "relation": "Organization",
+                "object": "Project:f543c2f8-e776-4acd-a8a5-9ea5b054d42d",
+                "condition": null
+            },
+            "timestamp": "2025-10-02T19:54:55.152749Z"
+        },
+        {
+            "key": {
+                "user": "user:tom",
+                "relation": "Owner",
+                "object": "Project:f543c2f8-e776-4acd-a8a5-9ea5b054d42d",
+                "condition": null
+            },
+            "timestamp": "2025-10-02T19:58:07.818617Z"
+        }
+    ],
+    "continuation_token": ""
+}

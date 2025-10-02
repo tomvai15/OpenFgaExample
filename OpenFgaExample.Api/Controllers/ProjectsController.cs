@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OpenFgaExample.Api.Authorization;
-using OpenFgaExample.Api.Models;
 
 namespace OpenFgaExample.Api.Controllers;
 
@@ -9,10 +8,37 @@ namespace OpenFgaExample.Api.Controllers;
 public class ProjectsController : ControllerBase
 {
     [HttpGet]
-    [FgaAuthorize("member", "group")]
-    public IList<ProjectResponseModel> Get()
+    [FgaAuthorize(Access.Organization.CanView)]
+    public IActionResult GetAll()
     {
-        return Enumerable.Range(1, 5).Select(index => new ProjectResponseModel("1", "Project"))
-            .ToList();
+        return Ok();
+    }
+    
+    [HttpPost]
+    [FgaAuthorize(Access.Organization.CanCreate)]
+    public IActionResult Create()
+    {
+        return Ok();
+    }
+    
+    [HttpGet("{id:guid}")]
+    [FgaAuthorize(Access.Project.CanView, "id")]
+    public IActionResult Get(Guid id)
+    {
+        return Ok(id);
+    }
+    
+    [HttpPut("{id:guid}")]
+    [FgaAuthorize(Access.Project.CanEdit, "id")]
+    public IActionResult Update(Guid id)
+    {
+        return Ok(id);
+    }
+    
+    [HttpDelete("{id:guid}")]
+    [FgaAuthorize(Access.Project.CanDelete, "id")]
+    public IActionResult Delete(Guid id)
+    {
+        return Ok(id);
     }
 }

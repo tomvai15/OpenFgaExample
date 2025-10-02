@@ -2,6 +2,12 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenFgaExample.Api", "OpenFgaExample.Api\OpenFgaExample.Api.csproj", "{58F332C0-89B2-4626-8B87-9CFB7A6786AB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{3D9938F7-218F-4FA0-B969-1CD25A44FE21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenFgaExample.Core", "OpenFgaExample.Core\OpenFgaExample.Core.csproj", "{78FC8B78-5966-4239-8028-1FC19A908E19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthorizeAnalyzer", "AuthorizeAnalyzer\AuthorizeAnalyzer.csproj", "{852B82BD-0A6C-4663-8A10-176CA35AC7DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +18,16 @@ Global
 		{58F332C0-89B2-4626-8B87-9CFB7A6786AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58F332C0-89B2-4626-8B87-9CFB7A6786AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58F332C0-89B2-4626-8B87-9CFB7A6786AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78FC8B78-5966-4239-8028-1FC19A908E19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78FC8B78-5966-4239-8028-1FC19A908E19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78FC8B78-5966-4239-8028-1FC19A908E19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78FC8B78-5966-4239-8028-1FC19A908E19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{852B82BD-0A6C-4663-8A10-176CA35AC7DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{852B82BD-0A6C-4663-8A10-176CA35AC7DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{852B82BD-0A6C-4663-8A10-176CA35AC7DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{852B82BD-0A6C-4663-8A10-176CA35AC7DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{78FC8B78-5966-4239-8028-1FC19A908E19} = {3D9938F7-218F-4FA0-B969-1CD25A44FE21}
 	EndGlobalSection
 EndGlobal
