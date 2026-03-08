@@ -5,12 +5,21 @@ using OpenFgaExample.Core.Models;
 namespace OpenFgaExample.Api.Authorization;
 
 public class CheckRequestProvider(IHttpContextAccessor httpContextAccessor,
-    ILogger<CheckRequestProvider> logger): ICheckRequestProvider
+    ILogger<CheckRequestProvider> logger,
+    IIdentityProvider identityProvider): ICheckRequestProvider
 {
     public CheckRequest? GetCheckRequest(FgaRequirement requirement)
     {
         const string rootAccessType = nameof(Access.Organization);
-        var userId = httpContextAccessor.HttpContext?.Request.Headers["UserId"].ToString();
+        var identity = identityProvider.GetCurrentUser();
+        if (identity is null)
+        {
+            logger.LogWarning("User is not authenticated");
+            return null;
+        }
+        
+       // var userId = httpContextAccessor.HttpContext?.Request.Headers["UserId"].ToString();
+       var userId = identity?.Id;
         
         if (string.IsNullOrEmpty(userId))
         {

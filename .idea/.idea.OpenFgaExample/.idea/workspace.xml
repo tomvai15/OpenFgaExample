@@ -13,23 +13,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="492c858c-d37c-4e10-9221-d7419c3561a5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Api/AccessRelations.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Api/AddHeaderOperationFilter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Api/Authorization/CheckRequestProvider.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Core/Interfaces/IAuthorizationChecker.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Core/Interfaces/IObjectIdProvider.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Core/Models/CheckRequest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Core/Models/CheckResult.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Core/OpenFgaAuthorizationChecker.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Api/Controllers/AuthController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Api/IdentityProvider.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Api/Models/CreateProjectRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Api/Models/TestUserModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Api/Models/TokenResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Api/Models/UpdateProjectRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Core/Interfaces/IProjectRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Core/Models/Project.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Core/Repositories/InMemoryProjectRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OpenFgaExample/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OpenFgaExample/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenFgaExample.Api/Authorization/FgaAuthorizeAttribute.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OpenFgaExample.Api/Authorization/FgaAuthorizeAttribute.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenFgaExample.Api/Authorization/FgaHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OpenFgaExample.Core/FgaHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenFgaExample.Api/Authorization/FgaPolicyProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OpenFgaExample.Core/FgaPolicyProvider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenFgaExample.Api/Authorization/FgaRequirement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OpenFgaExample.Core/FgaRequirement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OpenFgaExample.Api/Authorization/CheckRequestProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OpenFgaExample.Api/Authorization/CheckRequestProvider.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OpenFgaExample.Api/Controllers/ProjectsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OpenFgaExample.Api/Controllers/ProjectsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OpenFgaExample.Api/Models/ProjectResponseModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OpenFgaExample.Api/Models/ProjectResponseModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OpenFgaExample.Api/OpenFgaExample.Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/OpenFgaExample.Api/OpenFgaExample.Api.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OpenFgaExample.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OpenFgaExample.Api/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenFgaExample.sln" beforeDir="false" afterPath="$PROJECT_DIR$/OpenFgaExample.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OpenFgaExample.Api/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/OpenFgaExample.Api/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,24 +38,31 @@
   <component name="DpaMonitoringSettings">
     <option name="firstShow" value="false" />
   </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="4" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/20d4839985fe4f60a3126022e8766b9b55600/36/e98c7ef2/ClientConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/20d4839985fe4f60a3126022e8766b9b55600/ae/b01bd906/OpenFgaClient.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/20d4839985fe4f60a3126022e8766b9b55600/df/42e468e2/CheckResponse.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/25b488b474a24a259d51c4d0178618d8c930/39/5d31dbac/IAuthorizationPolicyProvider.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/25b488b474a24a259d51c4d0178618d8c930/7c/311a676d/IAuthorizationRequirement.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a8f25e55cb384d73b00cbfee35a37a671a928/83/5117e55b/IAuthorizationRequirement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/11ed3c8d1f87b6811c95853d59dd96eb6ce6cc32c193bb21bf5ad7eb9e3132b/Debugger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ce37be1a06b16c6faa02038d2cc477dd3bca5b217ceeb41c5f2ad45c1bf9/ServiceProvider.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f6dea9e2e5c91f624122592025f596259090be9a0654fb5292372a97a7ffc/RouteData.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f94d75bf67e0136ef9fae4b23aacf96cb37e72b510abb1ff729d4b1eb1c9e3c7/RoutingHttpContextExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fb693663d6e9a7e9b7e2926fd43ccff9c59647ba372d26ca8134994f81f97c15/AuthorizationPolicyBuilder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Tomas/Documents/Learning/OpenFga/OpenFgaExample/OpenFgaExample.Api/Authorization/CheckRequestProvider.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Tomas/Documents/Learning/OpenFga/OpenFgaExample/OpenFgaExample.Api/Controllers/ProjectsController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/OpenFgaExample.Api/IdentityProvider.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/OpenFgaExample.Api/Models/TestUserModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/OpenFgaExample.Api/Models/TokenResponse.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Tomas/Documents/Learning/OpenFga/OpenFgaExample/OpenFgaExample.Api/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Tomas/Documents/Learning/OpenFga/OpenFgaExample/OpenFgaExample.Api/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/OpenFgaExample.Core/Interfaces/IProjectRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/OpenFgaExample.Core/Repositories/InMemoryProjectRepository.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 8
@@ -72,13 +78,18 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -87,13 +98,14 @@
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/OpenFgaExample.Api/DistributedAuthorization.Core/DistributedAuthorization.Core.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net9.0" />
       <option name="LAUNCH_PROFILE_NAME" value="http" />
-      <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
       <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
       <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
       <option name="SEND_DEBUG_REQUEST" value="1" />
       <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <option name="AUTO_ATTACH_CHILDREN" value="0" />
+      <option name="MIXED_MODE_DEBUG" value="0" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -102,13 +114,14 @@
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/OpenFgaExample.Api/DistributedAuthorization.Core/DistributedAuthorization.Core.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net9.0" />
       <option name="LAUNCH_PROFILE_NAME" value="https" />
-      <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
       <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
       <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
       <option name="SEND_DEBUG_REQUEST" value="1" />
       <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <option name="AUTO_ATTACH_CHILDREN" value="0" />
+      <option name="MIXED_MODE_DEBUG" value="0" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -117,13 +130,14 @@
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/OpenFgaExample.Api/OpenFgaExample.Api.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net9.0" />
       <option name="LAUNCH_PROFILE_NAME" value="http" />
-      <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
       <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
       <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
       <option name="SEND_DEBUG_REQUEST" value="1" />
       <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <option name="AUTO_ATTACH_CHILDREN" value="0" />
+      <option name="MIXED_MODE_DEBUG" value="0" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -132,13 +146,14 @@
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/OpenFgaExample.Api/OpenFgaExample.Api.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net9.0" />
       <option name="LAUNCH_PROFILE_NAME" value="https" />
-      <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
       <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
       <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
       <option name="SEND_DEBUG_REQUEST" value="1" />
       <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <option name="AUTO_ATTACH_CHILDREN" value="0" />
+      <option name="MIXED_MODE_DEBUG" value="0" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -147,13 +162,14 @@
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/OpenFgaExample.Core/OpenFgaExample.Core.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net9.0" />
       <option name="LAUNCH_PROFILE_NAME" value="http" />
-      <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
       <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
       <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
       <option name="SEND_DEBUG_REQUEST" value="1" />
       <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <option name="AUTO_ATTACH_CHILDREN" value="0" />
+      <option name="MIXED_MODE_DEBUG" value="0" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -162,13 +178,14 @@
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/OpenFgaExample.Core/OpenFgaExample.Core.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net9.0" />
       <option name="LAUNCH_PROFILE_NAME" value="https" />
-      <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
       <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
       <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
       <option name="SEND_DEBUG_REQUEST" value="1" />
       <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <option name="AUTO_ATTACH_CHILDREN" value="0" />
+      <option name="MIXED_MODE_DEBUG" value="0" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -184,13 +201,15 @@
       <workItem from="1759256989208" duration="2567000" />
       <workItem from="1759260903603" duration="1395000" />
       <workItem from="1759339997770" duration="635000" />
-      <workItem from="1759424813333" duration="9887000" />
+      <workItem from="1759424813333" duration="11487000" />
+      <workItem from="1772997735777" duration="6503000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
@@ -210,124 +229,15 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/OpenFgaExample.Core/FgaHandler.cs</url>
-          <line>13</line>
-          <properties documentPath="C:\Users\Tomas\Documents\Learning\OpenFga\OpenFgaExample\OpenFgaExample.Api\Authorization\FgaHandler.cs" containingFunctionPresentation="Method 'HandleRequirementAsync'">
-            <startOffsets>
-              <option value="519" />
-            </startOffsets>
-            <endOffsets>
-              <option value="550" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/OpenFgaExample.Core/FgaHandler.cs</url>
-          <line>22</line>
-          <properties documentPath="C:\Users\Tomas\Documents\Learning\OpenFga\OpenFgaExample\OpenFgaExample.Api\Authorization\FgaHandler.cs" containingFunctionPresentation="Method 'HandleRequirementAsync'">
-            <startOffsets>
-              <option value="964" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1201" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/OpenFgaExample.Core/FgaHandler.cs</url>
-          <line>25</line>
-          <properties documentPath="C:\Users\Tomas\Documents\Learning\OpenFga\OpenFgaExample\OpenFgaExample.Core\FgaHandler.cs" containingFunctionPresentation="Method 'HandleRequirementAsync'">
-            <startOffsets>
-              <option value="853" />
-            </startOffsets>
-            <endOffsets>
-              <option value="954" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/OpenFgaExample.Core/FgaHandler.cs</url>
-          <line>26</line>
-          <properties documentPath="C:\Users\Tomas\Documents\Learning\OpenFga\OpenFgaExample\OpenFgaExample.Core\FgaHandler.cs" containingFunctionPresentation="Method 'HandleRequirementAsync'">
-            <startOffsets>
-              <option value="967" />
-            </startOffsets>
-            <endOffsets>
-              <option value="996" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/OpenFgaExample.Core/FgaHandler.cs</url>
-          <line>21</line>
-          <properties documentPath="C:\Users\Tomas\Documents\Learning\OpenFga\OpenFgaExample\OpenFgaExample.Core\FgaHandler.cs" containingFunctionPresentation="Method 'HandleRequirementAsync'">
-            <startOffsets>
-              <option value="729" />
-            </startOffsets>
-            <endOffsets>
-              <option value="800" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/OpenFgaExample.Core/FgaHandler.cs</url>
-          <line>32</line>
-          <properties documentPath="C:\Users\Tomas\Documents\Learning\OpenFga\OpenFgaExample\OpenFgaExample.Core\FgaHandler.cs" containingFunctionPresentation="Method 'HandleRequirementAsync'">
-            <startOffsets>
-              <option value="1173" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1174" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/OpenFgaExample.Core/FgaPolicyProvider.cs</url>
-          <line>10</line>
-          <properties documentPath="C:\Users\Tomas\Documents\Learning\OpenFga\OpenFgaExample\OpenFgaExample.Core\FgaPolicyProvider.cs" containingFunctionPresentation="Method 'GetDefaultPolicyAsync'">
-            <startOffsets>
-              <option value="384" />
-            </startOffsets>
-            <endOffsets>
-              <option value="431" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/OpenFgaExample.Core/FgaHandler.cs</url>
-          <line>30</line>
-          <properties documentPath="C:\Users\Tomas\Documents\Learning\OpenFga\OpenFgaExample\OpenFgaExample.Core\FgaHandler.cs" containingFunctionPresentation="Method 'HandleRequirementAsync'">
-            <startOffsets>
-              <option value="1044" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1144" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/OpenFgaExample.Core/FgaHandler.cs</url>
-          <line>31</line>
-          <properties documentPath="C:\Users\Tomas\Documents\Learning\OpenFga\OpenFgaExample\OpenFgaExample.Core\FgaHandler.cs" containingFunctionPresentation="Method 'HandleRequirementAsync'">
-            <startOffsets>
-              <option value="1153" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1168" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
   </component>
 </project>
