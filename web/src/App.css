@@ -1,27 +1,56 @@
-#app-root {
-  max-width: 1100px;
-  margin: 24px auto;
-  padding: 20px;
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  color: #0f172a;
+#root {
+  width: 100%;
 }
 
-header h1 {
+#app-root {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  min-height: 100vh;
+  box-sizing: border-box;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #0f172a;
+  background: #f8fafc;
+}
+
+/* ensure the viewport and root elements use full height so flex sizing works */
+html, body, #root, #app-root {
+  height: 100%;
+}
+
+.app-header {
+  width: 100%;
+}
+
+#app-root .app-header h1 {
   margin: 0 0 4px 0;
   font-size: 1.6rem;
 }
 
-header p {
+#app-root .app-header p {
   margin: 0 0 16px 0;
   color: #475569;
 }
 
 .layout {
   display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 20px;
+  grid-template-columns: 1fr;
+  gap: 24px;
   align-items: start;
+  width: 100%;
+  margin: 0;
 }
+.content { width: 100%; min-width: 0; display: flex; flex-direction: column; min-height: calc(100vh - 120px); }
+
+/* make panels in content take full available height and scroll if needed */
+.content .panel {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+}
+
+/* ensure panels don't enforce fixed height elsewhere */
+.panel { height: auto; }
 
 .panel {
   background: #ffffff;
@@ -72,3 +101,22 @@ header p {
 @media (max-width: 720px) {
   .layout { grid-template-columns: 1fr; }
 }
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2,6,23,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+  padding: 20px;
+}
+.modal {
+  width: 880px;
+  max-width: 100%;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 30px 80px rgba(2,6,23,0.4);
+  overflow: hidden;

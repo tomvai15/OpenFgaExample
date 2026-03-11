@@ -1,0 +1,20 @@
+model
+  schema 1.1
+
+type user
+
+type Organization
+  relations
+    define CanCreate: Member
+    define CanView: Member
+    define Member: [user]
+
+type Project
+  relations
+    define CanDelete: CanEdit
+    define CanEdit: Owner or Editor
+    define CanView: Viewer or CanEdit or Member from Organization
+    define Editor: [user]
+    define Organization: [Organization]
+    define Owner: [user]
+    define Viewer: [user]

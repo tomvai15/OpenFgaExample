@@ -55,3 +55,38 @@ export async function deleteProject(id: string): Promise<void> {
     throw new Error(txt || res.statusText)
   }
 }
+
+export async function checkRelation(resourceType: string, resourceId: string, relation: string): Promise<boolean> {
+  const res = await fetch(`${BASE}/api/openfga/check-relation`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', ...authHeaders() },
+    body: JSON.stringify({ resourceType, resourceId, relation }),
+  })
+  return (await handleRes<{ allowed: boolean }>(res)).allowed
+}
+
+export async function updateProjectRelations(id: string, relation: string, userId: string): Promise<void> {
+  const res = await fetch(`${BASE}/api/projects/${id}/relations`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', ...authHeaders() },
+    body: JSON.stringify({ Relation: relation, Id: userId }),
+  })
+  if (!res.ok) {
+    const txt = await res.text()
+    throw new Error(txt || res.statusText)
+  }
+}
+export type ProjectRelationsResponse = {
+  relations: ProjectRelationItem[]
+}
+
+export type ProjectRelationItem = {
+  id: string
+  displayName: string
+  relationType: string
+}
+
+export async function getProjectRelations(id: string): Promise<ProjectRelationsResponse> {
+  const res = await fetch(`${BASE}/api/projects/${id}/relations`, { headers: { ...authHeaders() } })
+  return handleRes<ProjectRelationsResponse>(res)
+}

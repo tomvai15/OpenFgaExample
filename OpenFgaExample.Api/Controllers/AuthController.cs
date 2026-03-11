@@ -1,10 +1,9 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Text;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using OpenFgaExample.Api.Models;
+using OpenFgaExample.Api.Services;
 
 namespace OpenFgaExample.Api.Controllers;
 
@@ -14,12 +13,7 @@ public class AuthController : ControllerBase
 {
     private readonly IConfiguration _config;
 
-    private static readonly Dictionary<string, TestUserModel> Users = new Dictionary<string, TestUserModel>
-    {
-        ["user-1"] = new TestUserModel("user-1", "Alice", "admin"),
-        ["user-2"] = new TestUserModel("user-2", "Bob", "viewer"),
-        ["user-3"] = new TestUserModel("user-3", "Eve", "editor"),
-    };
+    // test users are defined in TestUserStore
 
     public AuthController(IConfiguration config)
     {
@@ -29,13 +23,13 @@ public class AuthController : ControllerBase
     [HttpGet("users")]
     public IList<TestUserModel> GetTestUsers()
     {
-        return Users.Values.ToList();
+        return TestUserStore.All.ToList();
     }
 
     [HttpPost("token/{userId}")]
     public ActionResult<TokenResponse> GenerateToken(string userId)
     {
-        if (!Users.TryGetValue(userId, out var user)) return NotFound();
+        if (!TestUserStore.TryGet(userId, out var user)) return NotFound();
 
         var jwtSection = _config.GetSection("Jwt");
         var key = jwtSection.GetValue<string>("Key") ?? throw new InvalidOperationException("JWT key not configured");
@@ -47,7 +41,8 @@ public class AuthController : ControllerBase
         {
             new Claim(JwtRegisteredClaimNames.Sub, user.Id),
             new Claim(ClaimTypes.Name, user.Name),
-            new Claim(ClaimTypes.Role, user.Role),
+            new Claim(ClaimTypes.Role, user.Role.ToString()),
+            new Claim("Organization", user.OrganizationId),
         };
 
         var securityKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(key));

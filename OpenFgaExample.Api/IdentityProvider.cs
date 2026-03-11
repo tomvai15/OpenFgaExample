@@ -1,7 +1,7 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Threading;
 using OpenFgaExample.Api.Models;
+using OpenFgaExample.Api.Services;
 
 namespace OpenFgaExample.Api;
 
@@ -34,6 +34,9 @@ public class IdentityProvider : IIdentityProvider
                  ?? principal.FindFirst(JwtRegisteredClaimNames.Sub)?.Value;
         var name = principal.FindFirst(ClaimTypes.Name)?.Value ?? principal.Identity.Name;
         var role = principal.FindFirst(ClaimTypes.Role)?.Value ?? string.Empty;
+        Enum.TryParse<UserRole>(role, out var userRole);
+        var companyId = principal.FindFirst("Organization")?.Value ?? string.Empty;
+
 
         if (string.IsNullOrEmpty(id) || string.IsNullOrEmpty(name))
         {
@@ -41,7 +44,7 @@ public class IdentityProvider : IIdentityProvider
             return;
         }
 
-        _current.Value = new TestUserModel(id, name, role);
+        _current.Value = new TestUserModel(id, name, userRole, companyId);
     }
 
     public void Clear() => _current.Value = null;

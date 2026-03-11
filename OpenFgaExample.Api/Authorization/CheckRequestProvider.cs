@@ -4,9 +4,10 @@ using OpenFgaExample.Core.Models;
 
 namespace OpenFgaExample.Api.Authorization;
 
-public class CheckRequestProvider(IHttpContextAccessor httpContextAccessor,
+public class CheckRequestProvider(
+    IHttpContextAccessor httpContextAccessor,
     ILogger<CheckRequestProvider> logger,
-    IIdentityProvider identityProvider): ICheckRequestProvider
+    IIdentityProvider identityProvider) : ICheckRequestProvider
 {
     public CheckRequest? GetCheckRequest(FgaRequirement requirement)
     {
@@ -17,23 +18,21 @@ public class CheckRequestProvider(IHttpContextAccessor httpContextAccessor,
             logger.LogWarning("User is not authenticated");
             return null;
         }
-        
-       // var userId = httpContextAccessor.HttpContext?.Request.Headers["UserId"].ToString();
-       var userId = identity?.Id;
-        
+
+        var userId = identity!.Id;
+
         if (string.IsNullOrEmpty(userId))
         {
             logger.LogWarning("User {UserId} is required", userId);
             return null;
         }
-        
+
         if (requirement.ObjectType == rootAccessType)
         {
-            const string defaultOrg = "defaultOrg";
-            return CreateCheckRequest(requirement, userId, defaultOrg);
+            return CreateCheckRequest(requirement, userId, identity.OrganizationId);
         }
-        
-        var objectId = requirement.ObjectIdParamName != null 
+
+        var objectId = requirement.ObjectIdParamName != null
             ? httpContextAccessor.HttpContext?.GetRouteValue(requirement.ObjectIdParamName)?.ToString()
             : null;
 
@@ -44,8 +43,9 @@ public class CheckRequestProvider(IHttpContextAccessor httpContextAccessor,
         }
 
         if (requirement.ObjectIdParamName is null)
-            throw new InvalidOperationException($"{nameof(requirement.ObjectIdParamName)} cannot be null when {nameof(requirement.ObjectType)} is not {rootAccessType}");
-        
+            throw new InvalidOperationException(
+                $"{nameof(requirement.ObjectIdParamName)} cannot be null when {nameof(requirement.ObjectType)} is not {rootAccessType}");
+
         return CreateCheckRequest(requirement, userId, objectId);
     }
 
