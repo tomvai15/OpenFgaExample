@@ -12,12 +12,29 @@ public abstract class Access
     public enum Organization
     {
         CanCreate,
-        CanView
+        CanView,
+        CanCreateGroup
+    }
+    
+    public enum Group
+    {
+        CanView,
+        CanEdit,
+        CanDelete
     }
 }
 
 public static class AccessRelations
 {
+    public static class Group
+    {
+        public const string Owner = "Owner";
+        public const string Member = "Owner";
+        public const string Organization = "Organization";
+        public const string Viewer = "Viewer";
+        public const string Editor = "Editor";
+    }
+    
     public static class Project
     {
         public const string Owner = "Owner";

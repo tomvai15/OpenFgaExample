@@ -58,6 +58,7 @@ builder.Services.AddSingleton<IAuthorizationHandler, FgaHandler>();
 builder.Services.AddSingleton<IAuthorizationPolicyProvider, FgaPolicyProvider>();
 builder.Services.AddSingleton<ICheckRequestProvider, CheckRequestProvider>();
 builder.Services.AddSingleton<IProjectRepository, InMemoryProjectRepository>();
+builder.Services.AddSingleton<IGroupRepository, InMemoryGroupRepository>();
 
 // Add services to the container.
 builder.Services.AddHttpContextAccessor();

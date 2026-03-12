@@ -13,33 +13,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="492c858c-d37c-4e10-9221-d7419c3561a5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Api/Controllers/OpenFgaController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Api/Extensions/TupleKeyExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Api/Models/CheckRelationRequest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Api/Models/CheckRelationResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Api/Models/ProjectRelationsResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Api/Models/UpdateProjectRelationsRequest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Api/Services/InitialRelationsSeeder.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Api/Services/TestUserStore.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Api/Controllers/GroupsController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Api/Models/CreateGroupRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Api/Models/GroupRelationsResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Api/Models/GroupResponseModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Api/Models/RelationsResponseItem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Core/Interfaces/IGroupRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Core/Models/Group.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OpenFgaExample.Core/Repositories/InMemoryGroupsRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OpenFgaExample/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OpenFgaExample/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OpenFgaExample.Api/AccessRelations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OpenFgaExample.Api/AccessRelations.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenFgaExample.Api/Authorization/CheckRequestProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OpenFgaExample.Api/Authorization/CheckRequestProvider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenFgaExample.Api/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OpenFgaExample.Api/Controllers/AuthController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OpenFgaExample.Api/Controllers/ProjectsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OpenFgaExample.Api/Controllers/ProjectsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenFgaExample.Api/IdentityProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OpenFgaExample.Api/IdentityProvider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenFgaExample.Api/Models/TestUserModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OpenFgaExample.Api/Models/TestUserModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OpenFgaExample.Api/Models/ProjectRelationsResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OpenFgaExample.Api/Models/ProjectRelationsResponse.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OpenFgaExample.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OpenFgaExample.Api/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenFgaExample.Core/Interfaces/IProjectRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OpenFgaExample.Core/Interfaces/IProjectRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenFgaExample.Core/Models/Project.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OpenFgaExample.Core/Models/Project.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenFgaExample.Core/OpenFgaExample.Core.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/OpenFgaExample.Core/OpenFgaExample.Core.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenFgaExample.Core/Repositories/InMemoryProjectRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OpenFgaExample.Core/Repositories/InMemoryProjectRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/src/ProjectList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/ProjectList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/UserSwitcher.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/UserSwitcher.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/api.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +37,7 @@
     <option name="firstShow" value="false" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="41" />
+    <option name="cachedIndexableFilesCount" value="18" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="Git.Settings">
@@ -69,32 +56,15 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ce37be1a06b16c6faa02038d2cc477dd3bca5b217ceeb41c5f2ad45c1bf9/ServiceProvider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ce8ccbc86cae459e6b1a45a60efe5da97dfb3e072d770dbe27e883ead7b5f8/JwtRegisteredClaimNames.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fb693663d6e9a7e9b7e2926fd43ccff9c59647ba372d26ca8134994f81f97c15/AuthorizationPolicyBuilder.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Tomas/Documents/Learning/OpenFga/OpenFgaExample/OpenFgaExample.Api/Authorization/CheckRequestProvider.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Tomas/Documents/Learning/OpenFga/OpenFgaExample/OpenFgaExample.Api/Authorization/CheckRequestProvider.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Tomas/Documents/Learning/OpenFga/OpenFgaExample/OpenFgaExample.Api/Controllers/AuthController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Tomas/Documents/Learning/OpenFga/OpenFgaExample/OpenFgaExample.Api/Controllers/AuthController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Tomas/Documents/Learning/OpenFga/OpenFgaExample/OpenFgaExample.Api/Controllers/AuthController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/OpenFgaExample.Api/Controllers/OpenFgaController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Tomas/Documents/Learning/OpenFga/OpenFgaExample/OpenFgaExample.Api/Controllers/ProjectsController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Tomas/Documents/Learning/OpenFga/OpenFgaExample/OpenFgaExample.Api/Controllers/ProjectsController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Tomas/Documents/Learning/OpenFga/OpenFgaExample/OpenFgaExample.Api/Controllers/ProjectsController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Tomas/Documents/Learning/OpenFga/OpenFgaExample/OpenFgaExample.Api/Controllers/ProjectsController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/OpenFgaExample.Api/Extensions/TupleKeyExtensions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Tomas/Documents/Learning/OpenFga/OpenFgaExample/OpenFgaExample.Api/IdentityProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/OpenFgaExample.Api/IdentityProvider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/OpenFgaExample.Api/Models/CheckRelationRequest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/OpenFgaExample.Api/Models/CheckRelationResponse.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Tomas/Documents/Learning/OpenFga/OpenFgaExample/OpenFgaExample.Api/Models/TestUserModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/OpenFgaExample.Api/Models/TestUserModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/OpenFgaExample.Api/Models/TokenResponse.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Tomas/Documents/Learning/OpenFga/OpenFgaExample/OpenFgaExample.Api/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Tomas/Documents/Learning/OpenFga/OpenFgaExample/OpenFgaExample.Api/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Tomas/Documents/Learning/OpenFga/OpenFgaExample/OpenFgaExample.Api/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/OpenFgaExample.Api/Services/InitialRelationsSeeder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/OpenFgaExample.Api/Services/TestUserStore.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Tomas/Documents/Learning/OpenFga/OpenFgaExample/OpenFgaExample.Api/appsettings.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Tomas/Documents/Learning/OpenFga/OpenFgaExample/OpenFgaExample.Core/Interfaces/IProjectRepository.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Tomas/Documents/Learning/OpenFga/OpenFgaExample/OpenFgaExample.Core/Interfaces/IProjectRepository.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/OpenFgaExample.Core/Interfaces/IProjectRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/OpenFgaExample.Core/Repositories/InMemoryProjectRepository.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -112,28 +82,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.OpenFgaExample.Api: http.executor": "Debug",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "XThreadsFramesViewSplitterKey": "0.3956386",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.OpenFgaExample.Api: http.executor&quot;: &quot;Debug&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.3956386&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.OpenFgaExample.Api: http">
     <configuration name="DistributedAuthorization.Core: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/OpenFgaExample.Api/DistributedAuthorization.Core/DistributedAuthorization.Core.csproj" />
@@ -244,6 +214,7 @@
       <workItem from="1759339997770" duration="635000" />
       <workItem from="1759424813333" duration="11487000" />
       <workItem from="1772997735777" duration="31181000" />
+      <workItem from="1773346359569" duration="2200000" />
     </task>
     <servers />
   </component>

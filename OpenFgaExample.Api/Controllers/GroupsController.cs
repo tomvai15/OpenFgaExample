@@ -13,9 +13,9 @@ namespace OpenFgaExample.Api.Controllers;
 
 [ApiController]
 [Authorize]
-[Route("api/projects")]
-public class ProjectsController(
-    IProjectRepository repo,
+[Route("api/groups")]
+public class GroupController(
+    IGroupRepository repo,
     OpenFgaClient openFgaClient,
     IIdentityProvider identityProvider) : ControllerBase
 {
@@ -23,38 +23,16 @@ public class ProjectsController(
     [FgaAuthorize(Access.Organization.CanView)]
     public async Task<IActionResult> GetAll()
     {
-        var identity = identityProvider.GetCurrentUser();
-        if (identity is null) return Unauthorized();
-
-        var userId = identity.Id;
-
-        var relations = await openFgaClient.ListObjects(new ClientListObjectsRequest
-        {
-            User = $"user:{userId}",
-            Relation = Access.Project.CanView.ToString(),
-            Type = nameof(Access.Project)
-        });
-
-        var projectIds = relations.Objects
-            .Where(o => o.StartsWith("Project:"))
-            .Select(o => o.Split(':')[1])
-            .Select(idStr => Guid.TryParse(idStr, out var id) ? id : Guid.Empty)
-            .Where(id => id != Guid.Empty)
-            .ToList();
-
-        var items = await repo.GetByIdsAsync(projectIds);
-
+        var items = await repo.GetAllAsync();
         return Ok(items);
     }
 
     [HttpPost]
-    [FgaAuthorize(Access.Organization.CanCreate)]
-    public async Task<IActionResult> Create([FromBody] CreateProjectRequest req)
+    [FgaAuthorize(Access.Organization.CanCreateGroup)]
+    public async Task<IActionResult> Create([FromBody] CreateGroupRequest req)
     {
-        var identity = identityProvider.GetCurrentUser();
-
-        var project = new Project(Guid.NewGuid(), req.Name, req.Description, identity!.OrganizationId);
-        var created = await repo.CreateAsync(project);
+        var identity = identityProvider.GetCurrentUser()!;
+        var created = await repo.CreateAsync(new Group(Guid.Empty, req.Name, identity.OrganizationId));
 
         await openFgaClient.Write(new ClientWriteRequest
         {
@@ -62,42 +40,42 @@ public class ProjectsController(
             {
                 new ClientTupleKey
                 {
-                    Object = $"Project:{created.Id}",
-                    Relation = AccessRelations.Project.Owner,
-                    User = $"user:{identityProvider.GetCurrentUser().Id}"
+                    Object = $"Group:{created.Id}",
+                    Relation = AccessRelations.Group.Owner,
+                    User = $"user:{identity.Id}"
                 }
             }
         });
 
         return CreatedAtAction(nameof(Get), new { id = created.Id },
-            new ProjectResponseModel(created.Id.ToString(), created.Name, created.Description));
+            new GroupResponseModel(created.Id.ToString(), created.Name));
     }
 
     [HttpGet("{id:guid}")]
-    [FgaAuthorize(Access.Project.CanView, "id")]
+    [FgaAuthorize(Access.Group.CanView, "id")]
     public async Task<IActionResult> Get(Guid id)
     {
         var project = await repo.GetAsync(id);
         if (project is null) return NotFound();
-        return Ok(new ProjectResponseModel(project.Id.ToString(), project.Name, project.Description));
+        return Ok(new GroupResponseModel(project.Id.ToString(), project.Name));
     }
 
     [HttpPut("{id:guid}")]
-    [FgaAuthorize(Access.Project.CanEdit, "id")]
+    [FgaAuthorize(Access.Group.CanEdit, "id")]
     public async Task<IActionResult> Update(Guid id, [FromBody] UpdateProjectRequest req)
     {
-        var updated = await repo.UpdateAsync(id, req.Name, req.Description);
+        var updated = await repo.UpdateAsync(id, req.Name);
         if (updated is null) return NotFound();
-        return Ok(new ProjectResponseModel(updated.Id.ToString(), updated.Name, updated.Description));
+        return Ok(new GroupResponseModel(updated.Id.ToString(), updated.Name));
     }
 
-    
-   //  public record ProjectRelationsResponse(IList<ProjectRelationsResponseItem> Relations);
-   //  public record ProjectRelationsResponseItem(string Id, string DisplayName, string RelationType);
-    
+
+    //  public record ProjectRelationsResponse(IList<ProjectRelationsResponseItem> Relations);
+    //  public record ProjectRelationsResponseItem(string Id, string DisplayName, string RelationType);
+
     [HttpGet("{id:guid}/relations")]
-    [FgaAuthorize(Access.Project.CanEdit, "id")]
-    public async Task<ActionResult<ProjectRelationsResponse>> GetProjectRelations(Guid id)
+    [FgaAuthorize(Access.Group.CanEdit, "id")]
+    public async Task<ActionResult<GroupRelationsResponse>> GetProjectRelations(Guid id)
     {
         var responseItems = new List<RelationsResponseItem>();
 
@@ -107,13 +85,12 @@ public class ProjectsController(
         var validRelations = new List<string>
         {
             AccessRelations.Project.Editor,
-            AccessRelations.Project.Viewer,
         };
         foreach (var relation in validRelations)
         {
             var response = await openFgaClient.Read(new ClientReadRequest
             {
-                Object = $"Project:{id.ToString()}",
+                Object = $"Group:{id.ToString()}",
                 Relation = relation
             });
 
@@ -134,7 +111,7 @@ public class ProjectsController(
             };
         }).ToList();
 
-        return Ok(new ProjectRelationsResponse(resultItems));
+        return Ok(new GroupRelationsResponse(resultItems));
     }
 
 
@@ -142,15 +119,14 @@ public class ProjectsController(
 
     [HttpPost("{id:guid}/relations")]
     [FgaAuthorize(Access.Project.CanEdit, "id")]
-    public async Task<IActionResult> ProjectRelations(Guid id, [FromBody] UpdateProjectRelationsRequest req)
+    public async Task<IActionResult> GroupRelations(Guid id, [FromBody] UpdateProjectRelationsRequest req)
     {
-        var project = await repo.GetAsync(id);
-        if (project is null) return NotFound();
+        var group = await repo.GetAsync(id);
+        if (group is null) return NotFound();
 
         var validRelations = new List<string>
         {
-            AccessRelations.Project.Editor,
-            AccessRelations.Project.Viewer,
+            AccessRelations.Group.Member,
         };
 
         if (!validRelations.Contains(req.Relation))
@@ -162,7 +138,7 @@ public class ProjectsController(
             {
                 new ClientTupleKey
                 {
-                    Object = $"Project:{id.ToString()}",
+                    Object = $"Group:{id.ToString()}",
                     Relation = req.Relation,
                     User = $"user:{req.Id}"
                 }
@@ -174,7 +150,7 @@ public class ProjectsController(
     }
 
     [HttpDelete("{id:guid}")]
-    [FgaAuthorize(Access.Project.CanDelete, "id")]
+    [FgaAuthorize(Access.Group.CanDelete, "id")]
     public async Task<IActionResult> Delete(Guid id)
     {
         var ok = await repo.DeleteAsync(id);

@@ -23,6 +23,7 @@ import EditIcon from '@mui/icons-material/Edit'
 import DeleteIcon from '@mui/icons-material/Delete'
 import VisibilityIcon from '@mui/icons-material/Visibility'
 import ManageAccessModal from './ManageAccessModal'
+import ShareIcon from '@mui/icons-material/Share';
 
 export default function ProjectList() {
   const [projects, setProjects] = useState<Project[]>([])
@@ -148,6 +149,12 @@ export default function ProjectList() {
                     </IconButton>
                   </Tooltip>
 
+                  <Tooltip title={perms[p.id]?.canEdit === false ? 'You do not have permission to edit this project' : 'Share'}>
+                    <IconButton edge="end" onClick={() => handleView(p.id)} disabled={perms[p.id]?.canEdit === false}> 
+                      <ShareIcon />
+                    </IconButton>
+                  </Tooltip>
+
                   <Tooltip title={perms[p.id]?.canEdit === false ? 'You do not have permission to edit this project' : 'Edit'}>
                     <span>
                       <IconButton edge="end" onClick={() => handleEdit(p.id)} disabled={perms[p.id]?.canEdit === false}>
@@ -176,7 +183,7 @@ export default function ProjectList() {
         </Box>
       </div>
       {/* Dialog for project details */}
-      <Dialog open={!!selected} onClose={closeModal} fullWidth maxWidth="md">
+      {/* <Dialog open={!!selected} onClose={closeModal} fullWidth maxWidth="md">
         <DialogTitle sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           {selected?.name}
           <IconButton onClick={closeModal}><CloseIcon /></IconButton>
@@ -192,8 +199,8 @@ export default function ProjectList() {
         <DialogActions>
           <Button onClick={closeModal}>Close</Button>
         </DialogActions>
-      </Dialog>
-      <ManageAccessModal open={manageOpen} onClose={() => setManageOpen(false)} projectId={selected?.id ?? ''} projectName={selected?.name} />
+      </Dialog> */}
+      <ManageAccessModal open={!!selected} onClose={() => setSelected(null)} projectId={selected?.id ?? ''} projectName={selected?.name} />
     </div>
   )
 }
