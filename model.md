@@ -5,15 +5,18 @@ type user
 
 type Organization
   relations
+    define Admin: [user]
+    define CanCreate: Admin
+    define CanView: Member or Viewer or Admin
     define Member: [user]
-    define CanView: Member
-    define CanCreate: Member
+    define Viewer: [user]
 
 type Project
   relations
-    define CanEdit: Owner
     define CanDelete: CanEdit
-    define CanView: Viewer or CanEdit or Member from Organization
+    define CanEdit: Owner or Editor
+    define CanView: Viewer or CanEdit or CanView from Organization
+    define Editor: [user]
     define Organization: [Organization]
     define Owner: [user]
     define Viewer: [user]
